@@ -1,9 +1,8 @@
 package models
 
 import (
-	"DataCertProject/db"
-	"crypto/md5"
-	"encoding/hex"
+	"DataCertProject1/db"
+	"DataCertProject1/nuli"
 	"fmt"
 )
 
@@ -16,10 +15,12 @@ type User struct {
 func (u User) SeveUser() (int64, error) {
 	fmt.Println("执行了")
 	//密码拖密处理
-	hashMd5 := md5.New()
-	hashMd5.Write([]byte(u.Password)) //获得结构体user中的用户密码并粉碎
-	bytes := hashMd5.Sum(nil)
-	u.Password = hex.EncodeToString(bytes)
+	/*
+	*hash
+	*/
+
+
+	u.Password = nuli.Md5hashstring(u.Password)
 	//执行数据库操作
 	row, err := db.Db.Exec("insert into baoquan(phone,password)"+" values(?,?)", u.Phone, u.Password)
 	if err != nil {
@@ -33,13 +34,16 @@ func (u User) SeveUser() (int64, error) {
 	return num, nil
 }
 
-func (u User) Querys() (*User ,error) {
+func (u User) Querys() (*User,error) {
 
+	u.Password = nuli.Md5hashstring(u.Password)
 	row :=db.Db.QueryRow("select phone from baoquan where phone =? and password=? ", u.Phone, u.Password)
+
 
 	err:=row.Scan(&u.Phone)
 	if err !=nil {
-	return nil ,err
+	return nil,err
 }
-	return &u, nil
+	return  &u,nil
 }
+

@@ -7,7 +7,7 @@
     <meta name="keywords" content="区块链存证、知识产权保护、网络维权、取证">
     <meta name="description"
           content="保全网基于区块链技术，提供数据权益保护一站式解决方案。我们专注于服务知识产权、电商维权、金融存证等领域，提供在线签名、数据存证、在线取证、在线出具司法鉴定意见书的完整流程，为上百万用户提供数据存证保全业务。是全国首例区块链存证案例的独家技术提供方。">
-    <title>脸大网-区块链存证_在线取证_网络维权服务平台</title>
+    <title>遥氏保权网</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="author" content="">
@@ -227,54 +227,66 @@
                                         <section class="file-content"><!-- react-text: 1674 --><!-- /react-text -->
                                             <div class="files-container">
                                                 <div class="files-box">
-                                                    <div class="tag"><p><span class="musts">*</span><span>文件标签</span>
-                                                        </p>
-                                                        <div class="input-tag" style="position: relative;">
-                                                            <div class="el-autocomplete my-autocomplete">
-                                                                <div class="el-input"><input type="text" value=""
-                                                                                             placeholder="请输入标签名选择或新增"
-                                                                                             class="el-input__inner"
-                                                                                             autocomplete="off"></div>
-                                                                <div class="el-autocomplete-suggestion el-popper"
-                                                                     style="z-index: 1; display: none; width: 334px;">
-                                                                    <div class="el-scrollbar">
-                                                                        <div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap"
-                                                                             style="margin-right: -11px; margin-bottom: -11px;">
-                                                                            <ul class="el-scrollbar__view el-autocomplete-suggestion__list"
-                                                                                style="position: relative;">
-                                                                                <div class="resize-triggers">
-                                                                                    <div class="expand-trigger">
-                                                                                        <div style="width: 1px; height: 1px;"></div>
+                                                    <form action="/Upload" method="post" enctype="multipart/form-data">
+                                                        <div class="tag"><p><span
+                                                                        class="musts">*</span><span>文件标签</span>
+                                                            </p>
+                                                            <div class="input-tag" style="position: relative;">
+                                                                <div class="el-autocomplete my-autocomplete">
+                                                                    <div class="el-input"><input type="text" value=""
+                                                                                                 placeholder="请输入标签名选择或新增"
+                                                                                                 name="hears"
+                                                                                                 class="el-input__inner"
+                                                                                                 autocomplete="off">
+                                                                    </div>
+                                                                    <div class="el-autocomplete-suggestion el-popper"
+                                                                         style="z-index: 1; display: none; width: 334px;">
+                                                                        <div class="el-scrollbar">
+                                                                            <div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap"
+                                                                                 style="margin-right: -11px; margin-bottom: -11px;">
+                                                                                <ul class="el-scrollbar__view el-autocomplete-suggestion__list"
+                                                                                    style="position: relative;">
+                                                                                    <div class="resize-triggers">
+                                                                                        <div class="expand-trigger">
+                                                                                            <div style="width: 1px; height: 1px;"></div>
+                                                                                        </div>
+                                                                                        <div class="contract-trigger"></div>
                                                                                     </div>
-                                                                                    <div class="contract-trigger"></div>
-                                                                                </div>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                                            <div class="el-scrollbar__thumb"
-                                                                                 style="transform: translateX(0%);"></div>
-                                                                        </div>
-                                                                        <div class="el-scrollbar__bar is-vertical">
-                                                                            <div class="el-scrollbar__thumb"
-                                                                                 style="transform: translateY(0%);"></div>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="el-scrollbar__bar is-horizontal">
+                                                                                <div class="el-scrollbar__thumb"
+                                                                                     style="transform: translateX(0%);"></div>
+                                                                            </div>
+                                                                            <div class="el-scrollbar__bar is-vertical">
+                                                                                <div class="el-scrollbar__thumb"
+                                                                                     style="transform: translateY(0%);"></div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div><!-- react-text: 1693 --><!-- /react-text --><p
-                                                                    class="new-tag"><!-- react-text: 1695 -->已创建新标签“
-                                                                <!-- /react-text --><span class="label"></span>
-                                                                <!-- react-text: 1697 -->”，提交成功后收录标签库
-                                                                <!-- /react-text --></p><!-- react-text: 1698 -->
-                                                            <!-- /react-text --></div>
-                                                    </div>
-                                                    <div class="files">
-                                                        <div class="upload-icon"><i class="iconfont font-upload"></i>
-                                                            <p class="click-upload">点击上传</p><input type="file" title=" "
-                                                                                                   multiple=""
-                                                                                                   id="uploadOne"></div>
-                                                    </div>
-                                                    <button class="blueButton" type="button">立即存证</button>
+                                                                </div><!-- react-text: 1693 --><!-- /react-text --><p
+                                                                        class="new-tag"><!-- react-text: 1695 -->已创建新标签“
+                                                                    <!-- /react-text --><span class="label"></span>
+                                                                    <!-- react-text: 1697 -->”，提交成功后收录标签库
+                                                                    <!-- /react-text --></p><!-- react-text: 1698 -->
+                                                                <!-- /react-text --></div>
+                                                        </div>
+
+
+                                                        <div class="files">
+                                                            <div class="upload-icon"><i
+                                                                        class="iconfont font-upload"></i>
+                                                                <p class="click-upload">点击上传</p><input type="file"
+                                                                                                       title=" "
+                                                                                                       multiple=""
+                                                                                                       id="myfile"
+                                                                                                       name="myfile">
+                                                            </div>
+                                                        </div>
+                                                        <input class="blueButton" type="submit" value="立即存证">
+                                                    </form>
                                                 </div>
+
                                                 <div class="files-tip"><h3 class="title">温馨提示</h3>
                                                     <p>1、信息安全，人人有责，严禁上传违法、反动、危害社会公共安全等不良信息；</p>
                                                     <p>2、文件名最多可设置50个字符，超过上限后可能会存证失败；</p>
@@ -334,7 +346,7 @@
                 <ins class="nb-nodeboard-close" id="nb_nodeboard_close" data-type="min"></ins>
             </ins>
             <form id="nb_nodeboard_form" autocomplete="off" class="nb-board-form"
-                  action="https://p.qiao.baidu.com/cps4//bookmanage/saveBook.action?userId=26390501" method="post"
+                  action="Upload" method="post"
                   accept-charset="utf-8">
                 <ins id="nb_nodeboard_set" class="nb-nodeboard-set">
                     <ins class="nb-nodeboard-content"><textarea id="nb-nodeboard-set-content-js" name="content"
