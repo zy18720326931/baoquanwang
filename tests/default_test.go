@@ -1,7 +1,7 @@
 package test
 
 import (
-	_ "DataCertProject1/routers"
+	_ "DataCertProject/routers"
 	"net/http"
 	"net/http/httptest"
 	"path/filepath"

@@ -1,8 +1,8 @@
 package models
 
 import (
-	"DataCertProject1/db"
-	"DataCertProject1/nuli"
+	"DataCertProject/db"
+	"DataCertProject/nuli"
 	"fmt"
 )
 
@@ -17,8 +17,7 @@ func (u User) SeveUser() (int64, error) {
 	//密码拖密处理
 	/*
 	*hash
-	*/
-
+	 */
 
 	u.Password = nuli.Md5hashstring(u.Password)
 	//执行数据库操作
@@ -34,16 +33,14 @@ func (u User) SeveUser() (int64, error) {
 	return num, nil
 }
 
-func (u User) Querys() (*User,error) {
+func (u User) Querys() (*User, error) {
 
 	u.Password = nuli.Md5hashstring(u.Password)
-	row :=db.Db.QueryRow("select phone from baoquan where phone =? and password=? ", u.Phone, u.Password)
+	row := db.Db.QueryRow("select phone from baoquan where phone =? and password=? ", u.Phone, u.Password)
 
-
-	err:=row.Scan(&u.Phone)
-	if err !=nil {
-	return nil,err
+	err := row.Scan(&u.Phone)
+	if err != nil {
+		return nil, err
+	}
+	return &u, nil
 }
-	return  &u,nil
-}
-

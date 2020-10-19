@@ -157,7 +157,7 @@
                                     </li>
                                     <div class="notify-container">
                                         <div class="user">
-                                            <div class="user-content"><span class="phone">15570049786</span><i
+                                            <div class="user-content"><span class="phone">{{.Phone}}</span><i
                                                         class="iconfont font-down"></i></div>
                                             <ul><a href="https://www.baoquan.com/setting?lang=zh">
                                                     <li>账户中心</li>
@@ -238,6 +238,7 @@
                                                                                                  name="hears"
                                                                                                  class="el-input__inner"
                                                                                                  autocomplete="off">
+                                                                        <input name="phone"type="text" value="{{.Phone}}" hidden="hidden">
                                                                     </div>
                                                                     <div class="el-autocomplete-suggestion el-popper"
                                                                          style="z-index: 1; display: none; width: 334px;">

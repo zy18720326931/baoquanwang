@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"DataCertProject1/models"
+	"DataCertProject/models"
 	"fmt"
 	"github.com/astaxie/beego"
 )

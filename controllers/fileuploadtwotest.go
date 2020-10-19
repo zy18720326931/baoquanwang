@@ -1,12 +1,14 @@
 package controllers
 
 import (
-	"DataCertProject1/nuli"
+	"DataCertProject/models"
+	"DataCertProject/nuli"
 	"bufio"
 	"fmt"
 	"github.com/astaxie/beego"
 	"io"
 	"os"
+	"time"
 )
 
 type TwoController struct {
@@ -15,7 +17,8 @@ type TwoController struct {
 
 func (t *TwoController) Post() {
 	//获取标题
-	name := t.Ctx.Request.PostFormValue("hear")
+	name := t.Ctx.Request.PostFormValue("hears")
+	Phone := t.Ctx.Request.PostFormValue("phone")
 	fmt.Println(name)
 	//
 
@@ -31,6 +34,13 @@ func (t *TwoController) Post() {
 		fmt.Println(err.Error())
 		return
 	}
+	defer thefile.Close()
+	filena, err := os.Open(uploaddir)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer filena.Close()
 	write := bufio.NewWriter(thefile)
 	//new一个write
 	filesize, err := io.Copy(write, f)
@@ -40,8 +50,37 @@ func (t *TwoController) Post() {
 	}
 	fmt.Println("文件大小:", filesize)
 
-	filestr := nuli.Md5hashfile(f)
-	fmt.Println("文件哈希:", filestr)
-	t.Ctx.WriteString("上传成功~！！！！！！！")
+	filestr := nuli.Md5hashfile(filena)
+	//fmt.Println("文件哈希:", filestr)
+	//t.Ctx.WriteString("上传成功~！！！！！！！")
+
+	Tofile := models.Filedata{}
+	Tofile.File_name = h.Filename
+	Tofile.File_string = filestr
+	Tofile.File_size = filesize
+	Tofile.Phone = Phone
+	Tofile.Cre_time = time.Now().Unix()
+	Tofile.File_title = name
+	_, err = models.Filedata.SavetoMysql(Tofile)
+	if err != nil {
+		fmt.Println(err.Error())
+		t.Ctx.WriteString("数据传入出错")
+		return
+	}
+	Files, err := models.Request(Phone)
+	if err != nil {
+		fmt.Println(err.Error())
+		t.Ctx.WriteString("身份验证出错")
+		return
+	}
+	fmt.Println(Files)
+	fmt.Println(Tofile)
+
+	t.Data["Files"] = Files
+	t.Data["Phone"] = Phone
 	t.TplName = "new.html"
+
+	//解决问题后调到上面,把数据传到页面
+
+	//下一步
 }
