@@ -2,6 +2,7 @@ package nuli
 
 import (
 	"crypto/md5"
+	"crypto/sha256"
 	"encoding/hex"
 	"io"
 	"io/ioutil"
@@ -21,4 +22,10 @@ func Md5hashfile(reader io.Reader) string {
 	hashMd5.Write([]byte(filebyte))
 	bytes := hashMd5.Sum(nil)
 	return hex.EncodeToString(bytes)
+}
+func SHA256Hash(data []byte) ([]byte) {
+	//、对数据进行sha256
+	sha256Hash := sha256.New()
+	sha256Hash.Write(data)
+	return sha256Hash.Sum(nil)
 }

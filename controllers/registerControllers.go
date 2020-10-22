@@ -18,7 +18,7 @@ func (r *RegisterControllers) Post() {
 		r.Ctx.WriteString("对不起，数据解析错误")
 		return
 	}
-	_, err1 := user.SeveUser()
+	_, err1 := user.SaveUser()
 	if err1 != nil {
 		fmt.Println(err1)
 		r.Ctx.WriteString("对不起，用户注册失败")

@@ -54,20 +54,20 @@ func (t *TwoController) Post() {
 	//fmt.Println("文件哈希:", filestr)
 	//t.Ctx.WriteString("上传成功~！！！！！！！")
 
-	Tofile := models.Filedata{}
-	Tofile.File_name = h.Filename
-	Tofile.File_string = filestr
-	Tofile.File_size = filesize
+	Tofile := models.UploadRecord{}
+	Tofile.FileName= h.Filename
+	Tofile.FileCert= filestr
+	Tofile.FileSize   = filesize
 	Tofile.Phone = Phone
-	Tofile.Cre_time = time.Now().Unix()
-	Tofile.File_title = name
-	_, err = models.Filedata.SavetoMysql(Tofile)
+	Tofile.CertTime= time.Now().Unix()
+	Tofile.FileTitle = name
+	_, err = models.UploadRecord.SaveRecord(Tofile)
 	if err != nil {
 		fmt.Println(err.Error())
 		t.Ctx.WriteString("数据传入出错")
 		return
 	}
-	Files, err := models.Request(Phone)
+	Files, err := models.QueryRecordByPhone(Phone)
 	if err != nil {
 		fmt.Println(err.Error())
 		t.Ctx.WriteString("身份验证出错")

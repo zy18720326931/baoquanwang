@@ -16,7 +16,7 @@ func (m *RequControllers) Post() {
 	if err != nil {
 		m.Ctx.WriteString("您未登录")
 	}
-	u, err := user.Querys()
+	u, err := user.QueryUser()
 
 	if err != nil {
 		m.Ctx.WriteString("您未注册")
