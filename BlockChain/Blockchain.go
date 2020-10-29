@@ -1,4 +1,4 @@
-package blockchain
+package BlockChain
 
 import (
 	"DataCertProject/nuli"
@@ -77,7 +77,7 @@ func NewBlock(height int64, data []byte, prevHash []byte) Block {
 
 	return block
 }
-func Newencoder(block Block)( []byte,error){
+func (block Block)Newencoder()( []byte,error){
 	buff:=new(bytes.Buffer)
     err:=gob.NewEncoder(buff).Encode(block)
 	if err !=nil {
@@ -86,11 +86,11 @@ func Newencoder(block Block)( []byte,error){
 	return  buff.Bytes() ,nil
 }
 func Newdecoder(b []byte)(*Block,error){
-	var  block  Block
+    var block *Block
 	err:=gob.NewDecoder(bytes.NewReader(b)).Decode(&block)
 	if err !=nil {
 		return nil,err
 	}
-	return &block,nil
+	return block,nil
 
 }

@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d80a162-ffd0-4072-acac-980373b52d58" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/BlockChain/Blockchain.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlockChain/pow.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/uploadRecord.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nuli/tobyte.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/reload.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlockChain/bk.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlockChain.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/fileuploadtwotest.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/fileuploadtwotest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/registerControllers.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/registerControllers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/requControllers.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/requControllers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlockChain/Blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/BlockChain/Blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlockChain/pow.go" beforeDir="false" afterPath="$PROJECT_DIR$/BlockChain/pow.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/baoquan_user.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/uploadfiletomysql.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuli/hash.go" beforeDir="false" afterPath="$PROJECT_DIR$/nuli/hash.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/app-de629dfeac93cb9584b8.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/app-5e0455372927b43eec8b.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/common-de629dfeac93cb9584b8.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common-5e0455372927b43eec8b.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/b.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/b.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/hm.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/hm.js(1)" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hm(1).js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/hm.js(2)" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hm(2).js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/poll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/set-cookies" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/set-cookies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/new.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +80,7 @@
       <recent name="D:\goproject\src\DataCertProject\views" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
+  <component name="RunManager" selected="Go Build.go build DataCertProject">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="DataCertProject" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -142,8 +125,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build DataCertProject" />
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="JavaScript Debug.new.html" />
       </list>
     </recent_temporary>
@@ -174,34 +157,34 @@
     </state>
     <state x="738" y="98" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602405760124" />
     <state x="738" y="103" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1603009449491" />
-    <state width="1074" height="137" key="GridCell.Tab.0.bottom" timestamp="1603372107762">
+    <state width="1357" height="220" key="GridCell.Tab.0.bottom" timestamp="1603971718291">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1077" height="141" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602423949872" />
-    <state width="1074" height="137" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1603372107762" />
-    <state width="1074" height="137" key="GridCell.Tab.0.center" timestamp="1603372107762">
+    <state width="1357" height="220" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1603971718291" />
+    <state width="1357" height="220" key="GridCell.Tab.0.center" timestamp="1603971718291">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1077" height="141" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602423949872" />
-    <state width="1074" height="137" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1603372107762" />
-    <state width="1074" height="137" key="GridCell.Tab.0.left" timestamp="1603372107762">
+    <state width="1357" height="220" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1603971718291" />
+    <state width="1357" height="220" key="GridCell.Tab.0.left" timestamp="1603971718291">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1077" height="141" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602423949871" />
-    <state width="1074" height="137" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1603372107762" />
-    <state width="1074" height="137" key="GridCell.Tab.0.right" timestamp="1603372107762">
+    <state width="1357" height="220" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1603971718291" />
+    <state width="1357" height="220" key="GridCell.Tab.0.right" timestamp="1603971718291">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1077" height="141" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602423949872" />
-    <state width="1074" height="137" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1603372107762" />
+    <state width="1357" height="220" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1603971718291" />
     <state x="355" y="112" key="SettingsEditor" timestamp="1603204745750">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="355" y="112" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1603204745750" />
-    <state x="500" y="80" width="762" height="522" key="dock-window-1" timestamp="1603370748693">
+    <state x="649" y="126" width="706" height="790" key="dock-window-1" timestamp="1603971128128">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="500" y="80" width="762" height="522" key="dock-window-1/0.0.1536.864@0.0.1536.864" timestamp="1603370748693" />
+    <state x="649" y="126" width="706" height="790" key="dock-window-1/0.0.1536.864@0.0.1536.864" timestamp="1603971128128" />
     <state x="534" y="185" key="search.everywhere.popup" timestamp="1602468318828">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

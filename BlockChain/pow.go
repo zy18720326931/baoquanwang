@@ -1,4 +1,4 @@
-package blockchain
+package BlockChain
 
 import (
 	"DataCertProject/nuli"
@@ -36,6 +36,7 @@ func NewPoW(block Block) ProofOfWork {
 /*
  * pow算法：寻找符合条件的nonce值
  */
+
 func (p ProofOfWork) Run() (int64) {
 	var nonce int64
 	//var bigBlock *big.Int //声明
