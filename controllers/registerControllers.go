@@ -10,6 +10,9 @@ type RegisterControllers struct {
 	beego.Controller
 }
 
+func (r *RegisterControllers)Get()  {
+	r.TplName ="reg.html"
+}
 func (r *RegisterControllers) Post() {
 	fmt.Println("也执行了")
 	var user models.User

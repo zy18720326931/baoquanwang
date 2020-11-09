@@ -1,34 +1,23 @@
 package main
 
 import (
+	"DataCertProject/BlockChain"
 	"DataCertProject/db"
 	_ "DataCertProject/routers"
 	"github.com/astaxie/beego"
 )
 
-func main()  {
+//const BUCKET_NAME = "class3"
 
-	//newblockchain:=BlockChain.Newblockchain()
-   //
-   // block,err:= newblockchain.Severblock([]byte("世界你好"))
-	//if err !=nil {
-	//	fmt.Println(err.Error())
-	//}
-   //fmt.Println(block)
-   // fmt.Printf("最新区块的Hash值:%x\n",block.Hash)
-   //  block3:=newblockchain.Qureyblock(1)
-	//if block3==nil {
-	//	fmt.Println("没有o")
-	//	return
-	//}
-   // fmt.Println(block3.Data,block3.Height)
-	//return
-	beego.SetStaticPath("/js","./static/js")
-	beego.SetStaticPath("/css","./static/css")
-	beego.SetStaticPath("/img","./static/img")
+func main() {
+
+
+	BlockChain.Newblockchain()
+	//1.连接数据库
 	db.ConDB()
+	//2.静态资源路径设置
+	beego.SetStaticPath("/js", "./static/js")
+	beego.SetStaticPath("/css", "./static/css")
+	beego.SetStaticPath("/img", "./static/img")
 	beego.Run()
-
-
-
 }

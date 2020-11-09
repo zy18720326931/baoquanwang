@@ -1,6 +1,7 @@
 package BlockChain
 
 import (
+	"DataCertProject/models"
 	"errors"
 	"fmt"
 	"github.com/boltdb/bolt-master"
@@ -9,6 +10,7 @@ import (
 const TONG = "thebuck"
 const LAST_KEY = "last_buket"
 
+var CHAIN  BlockChain
 /*
 **区块链结构体定意义：用于代表一条链
 *1,将新产生的区块于已有的连起来
@@ -28,7 +30,6 @@ func Newblockchain() BlockChain {
 		panic("请查看连接！！！")
 	}
 	//获得创世区块
-
 
 	//	//如果存在呢？
 	bb.Update(func(tx *bolt.Tx) error {
@@ -76,6 +77,7 @@ func Newblockchain() BlockChain {
 		return nil
 
 	})
+	CHAIN=blc
 	return blc
 }
 
@@ -149,4 +151,61 @@ func (bc BlockChain) Qureyblock(height int64) *Block {
 	})
 
 	return block
+}
+func (bc BlockChain) Qureallblock()([]*Block,error) {
+	var e error
+	allblocks := make([]*Block, 0)
+	blockbolt := bc.Boltdb
+	blockbolt.View(func(tx *bolt.Tx) error {
+		thebucket := tx.Bucket([]byte(TONG))
+		if thebucket == nil {
+			e = errors.New("没有找到这个桶")
+			return e
+		}
+		lasthash := thebucket.Get([]byte(LAST_KEY))
+
+		for {
+
+			lastblockbytes := thebucket.Get([]byte(lasthash))
+			eachblock, _ := Newdecoder(lastblockbytes)
+			allblocks = append(allblocks, eachblock)
+			if eachblock.Height == 0 {
+				break
+			}
+            lasthash=eachblock.PrevHash
+		}
+
+		return nil
+	})
+return allblocks,e
+}
+func (bc BlockChain)QureForid(cretid []byte)*Block  {
+	block :=new(Block)
+	blockbolt := bc.Boltdb
+
+	blockbolt.View(func(tx *bolt.Tx) error {
+		thebucket := tx.Bucket([]byte(TONG))
+		if thebucket == nil {
+
+			return nil
+		}
+		lasthash := thebucket.Get([]byte(LAST_KEY))
+         var BYtes  *models.Corddata
+		for  {
+			lastblockbytes := thebucket.Get([]byte(lasthash))
+			eachblock, _ := Newdecoder(lastblockbytes)
+             BYtes,_= models.NewdecordforCorddata(eachblock.Data)
+			if string(BYtes.Baoquanid)==string(cretid) {
+				block=eachblock
+				break
+			}
+			lasthash=eachblock.PrevHash
+			
+		}
+
+		return nil
+	})
+
+
+	return  block
 }

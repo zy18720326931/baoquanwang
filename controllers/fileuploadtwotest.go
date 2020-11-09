@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"DataCertProject/BlockChain"
 	"DataCertProject/models"
 	"DataCertProject/nuli"
 	"bufio"
@@ -35,6 +36,7 @@ func (t *TwoController) Post() {
 		return
 	}
 	defer thefile.Close()
+	//计算文件哈希
 	filena, err := os.Open(uploaddir)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -51,15 +53,15 @@ func (t *TwoController) Post() {
 	fmt.Println("文件大小:", filesize)
 
 	filestr := nuli.Md5hashfile(filena)
-	//fmt.Println("文件哈希:", filestr)
+	//	//fmt.Println("文件哈希:", filestr)
 	//t.Ctx.WriteString("上传成功~！！！！！！！")
 
 	Tofile := models.UploadRecord{}
-	Tofile.FileName= h.Filename
-	Tofile.FileCert= filestr
-	Tofile.FileSize   = filesize
+	Tofile.FileName = h.Filename
+	Tofile.FileCert = filestr
+	Tofile.FileSize = filesize
 	Tofile.Phone = Phone
-	Tofile.CertTime= time.Now().Unix()
+	Tofile.CertTime = time.Now().Unix()
 	Tofile.FileTitle = name
 	_, err = models.UploadRecord.SaveRecord(Tofile)
 	if err != nil {
@@ -67,10 +69,44 @@ func (t *TwoController) Post() {
 		t.Ctx.WriteString("数据传入出错")
 		return
 	}
+
 	Files, err := models.QueryRecordByPhone(Phone)
 	if err != nil {
 		fmt.Println(err.Error())
 		t.Ctx.WriteString("身份验证出错")
+		return
+	}
+	  Users,err:=models.QueryUserByPhone(Phone)
+	if err != nil {
+		fmt.Println(err.Error())
+		t.Ctx.WriteString("用户认证信息传入错误")
+		return
+	}
+    Sha256forfile:=nuli.SHA256Hashforread(filena)
+	Userdata := models.Corddata{
+    Baoquanid:[]byte(filestr),
+    Crethash: []byte(Sha256forfile),
+    Username:Users.Username,
+    Phone:Users.Phone,
+    CordId:Users.Cardid,
+    Filename:h.Filename,
+    Filesize:filesize,
+    CreTime:time.Now().Unix(),
+
+	}
+   UserdataByte,err:= Userdata.NewencordforCorddata()
+	if err != nil {
+		fmt.Println(err.Error())
+		t.Ctx.WriteString("用户认证信息序列化出现错误")
+		return
+	}
+
+
+	//这一步是将data放入文件里，而这里不应该放入只有一个文件。。。。
+	_, err = BlockChain.CHAIN.Severblock(UserdataByte)
+	if err != nil {
+		fmt.Println(err.Error())
+		t.Ctx.WriteString("区块未存入")
 		return
 	}
 	fmt.Println(Files)

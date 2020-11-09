@@ -29,3 +29,11 @@ func SHA256Hash(data []byte) ([]byte) {
 	sha256Hash.Write(data)
 	return sha256Hash.Sum(nil)
 }
+func SHA256Hashforread(reader io.Reader)string {
+	filebyte, _ := ioutil.ReadAll(reader)
+	sha256Hash := sha256.New()
+	sha256Hash.Write(filebyte)
+	return hex.EncodeToString(sha256Hash.Sum(nil))
+
+
+}
